@@ -1,0 +1,13 @@
+
+.row div {
+    float: left;
+    background-color: red;
+    width: 11%;
+    margin: 0.5%;
+}
+
+.row div:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
