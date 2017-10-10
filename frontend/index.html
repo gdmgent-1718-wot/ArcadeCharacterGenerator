@@ -30,13 +30,24 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="max-width: 450px">
         <br><br><br>
         <h1>Arcade Character Builder</h1>
         <p class="lead">Make a character with the matrix below, hit apply and watch the magic happen on your Raspberry Pi</p>
         
         <div class="matrix">
-           <div class="row"> 
+           <div class="row">
+            <div @click="changeColor" v-bind:class="color"></div>
+            <div @click="changeColor" v-bind:class="color"></div>
+            <div @click="changeColor" v-bind:class="color"></div>
+            <div @click="changeColor" v-bind:class="color"></div>
+            <div @click="changeColor" v-bind:class="color"></div>
+            <div @click="changeColor" v-bind:class="color"></div>
+            <div @click="changeColor" v-bind:class="color"></div>
+            <div @click="changeColor" v-bind:class="color"></div>
+           </div>
+           
+          <div class="row">
             <div></div>
             <div></div>
             <div></div>
@@ -47,7 +58,7 @@
             <div></div>
            </div>
            
-          <div class="row"> 
+          <div class="row">
             <div></div>
             <div></div>
             <div></div>
@@ -58,7 +69,7 @@
             <div></div>
            </div>
            
-          <div class="row"> 
+          <div class="row">
             <div></div>
             <div></div>
             <div></div>
@@ -69,7 +80,7 @@
             <div></div>
            </div>
            
-          <div class="row"> 
+          <div class="row">
             <div></div>
             <div></div>
             <div></div>
@@ -80,7 +91,7 @@
             <div></div>
            </div>
            
-          <div class="row"> 
+          <div class="row">
             <div></div>
             <div></div>
             <div></div>
@@ -91,7 +102,7 @@
             <div></div>
            </div>
            
-          <div class="row"> 
+          <div class="row">
             <div></div>
             <div></div>
             <div></div>
@@ -102,18 +113,7 @@
             <div></div>
            </div>
            
-          <div class="row"> 
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-           </div>
-           
-          <div class="row"> 
+          <div class="row">
             <div></div>
             <div></div>
             <div></div>
@@ -145,7 +145,24 @@
        let app = new Vue({
            el: '.matrix',
            data: {
-               test: 'hey'
+               test: 'hey',
+               color: 'grey',
+               isActive: true,
+               error: null
+           },
+           methods: {
+               changeColor: function () {
+                   i = 0;
+                   colorArray = ['red', 'green', 'blue', 'yellow', 'orange', 'darkorange'];
+                   this.color = colorArray[i];
+               },
+
+               classObject: function () {
+                   return {
+                       active: this.isActive && !this.error,
+                       'text-danger': this.error && this.error.type === 'fatal'
+                   }
+               }
            }
        })
     
