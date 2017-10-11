@@ -1,0 +1,23 @@
+#app{
+  background-color: grey;
+  width: 100%;
+}
+#matrix{
+  margin: 0 auto;
+}
+li{
+  display: inline;
+  padding: 5px;
+}
+button{
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border: none;
+}
+.green{
+  background-color: #41B883;
+}
+.blue{
+  background-color: #35495E;
+}
