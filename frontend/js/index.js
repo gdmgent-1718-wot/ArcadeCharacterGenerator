@@ -23,10 +23,10 @@ new Vue({
       // alert(parent + 1)
 
         //Als je op een button clickt opent de colorpicker op de juiste plaats
-        let cx = event.clientX;
-        let transform = cx - 180;
-        $('.translate').css("transform", 'translate('+ transform + 'px)');
-        $('.color-picker').css("transform", "scale(1.2 ,1.2)");
+        // let cx = event.clientX;
+        // let transform = cx - 180;
+        // $('.translate').css("transform", 'translate('+ transform + 'px)');
+        // $('.color-picker').css("transform", "scale(1.2 ,1.2)");
     }
   }
 });
