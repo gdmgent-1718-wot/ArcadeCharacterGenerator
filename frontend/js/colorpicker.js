@@ -1,26 +1,15 @@
-$('#text').val($('#colorinput').val());
-
 $('#text').change(function() {
     $('#colorinput').val($('#text').val());
     $('.color-picker').attr('data-value', $('#text').val());
-    $('.paper-button').css('background-color', $('#text').val());
 });
 
+//
 $('#colorinput').change(function() {
     $('#text').val($(this).val().toUpperCase());
     $('.color-picker').attr('data-value', $(this).val().toUpperCase());
 });
 
-$('.paper-button').click(function(e) {
-    let cx = e.clientX;
-    console.log(cx);
-    let transform = cx - 155;
-    console.log(transform);
-    $('.translate').css("transform", 'translate(' + transform + 'px)');
-    $('.color-picker').css("transform", "scale(1,1)");
-    // $(this).addClass('opened');
-});
-
+// Sluit de colorpicker
 $('#close').click(function() {
     $('.color-picker').css('transform', 'scale(0,0)');
 });
@@ -35,7 +24,6 @@ function rgb2hex(rgb) {
 
 $('.color-picker > div:not(#close)').click(function() {
     let bg = $(this).css('background-color');
-    $('.paper-button').css('background-color', bg);
     $('#colorinput').val(rgb2hex($(this).css('background-color')));
     $('#colorinput').change();
 });

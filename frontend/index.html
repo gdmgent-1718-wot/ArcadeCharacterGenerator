@@ -9,10 +9,10 @@
 
 <body>
 
-<a class="paper-button ripple">
-    PICK A COLOR
-</a>
-<div class="translate">
+<!--<a class="paper-button ripple">-->
+    <!--PICK A COLOR-->
+<!--</a>-->
+<div class="translate" id="colorpicker">
     <div class="color-picker" data-value="#2196F3">
         <div class="red"></div>
         <div class="blue"></div>
@@ -41,8 +41,8 @@
       <input type="text" id="text">
       <div class="underline"></div>
     </span>
-        <div id="close">
-            <i class="material-icons">close</i>
+        <div id="close" @click="changeColor">
+            OK!
         </div>
     </div>
 </div>
@@ -52,7 +52,7 @@
     <li v-for="rows,row in matrix">
       <ul id="matrix">
         <li v-for="pixel, nr in rows">
-          <button @click="handleClick(row, nr)">
+          <button  @click="handleClick(row, nr, $event)"  v-bind:style="{ 'background-color': color }" >
             {{row + 1}} | {{nr + 1}}
           </button></li>
       </ul>
@@ -65,9 +65,7 @@
 
 <!--We laden JQUERY in voor de colorpicker.-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--Colorpicker Animations-->
-  <script src="js/gestures.js"></script>
-<!--Colorpicker Popup-->
+<!--Colorpicker-->
   <script src="js/colorpicker.js"></script>
 <!--Vue Code-->
   <script  src="js/index.js"></script>
