@@ -47,15 +47,21 @@
     <!--</div>-->
 <!--</div>-->
 
-
+<div id="colorpicker">
+    <photoshop-picker v-model="colors" @ok="onOk" @cancel="onCancel" @input="updateValue"></photoshop-picker>
+    <div :style="{ color: bgc }">
+        R:{{bgc.r}}
+        G:{{bgc.g}}
+        B:{{bgc.b}}
+    </div>
+</div>
 
   <div id="app">
-      <chrome-picker :value="colors" @input="updateValue"></chrome-picker>
    <ul>
     <li v-for="rows,row in matrix">
       <ul id="matrix">
         <li v-for="pixel, nr in rows">
-          <button  @click="handleClick(row, nr, $event)" >
+          <button  @click="handleClick(row, nr, $event)">>
             {{row + 1}} | {{nr + 1}}
           </button></li>
       </ul>
@@ -67,7 +73,7 @@
   <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"></script>
   <script src="js/vue-color.min.js"></script>
 <script>
-    var chrome = VueColor.Chrome
+    var photoshop = VueColor.Photoshop
 </script>
 
 <!--We laden JQUERY in voor de colorpicker.-->

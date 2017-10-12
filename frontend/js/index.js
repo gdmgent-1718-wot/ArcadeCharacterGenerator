@@ -57,11 +57,31 @@ var defaultProps = {
 }
 
 new Vue({
-    el: '#app',
+    el: '#colorpicker',
+
     components: {
-        'chrome-picker': chrome
+        'photoshop-picker': photoshop
     },
+
     data: {
         colors: defaultProps
+    },
+
+    computed: {
+        bgc () {
+            return this.colors.rgba
+        }
+    },
+
+    methods: {
+        onOk () {
+            console.log('ok')
+        },
+        onCancel () {
+            console.log('cancel')
+        },
+        updateValue (value) {
+            this.colors = value
+        }
     }
 })
