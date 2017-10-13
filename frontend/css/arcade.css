@@ -1,7 +1,3 @@
-#app{
-  background-color: grey;
-  width: 100%;
-}
 #matrix{
   margin: 0 auto;
 }
@@ -13,10 +9,4 @@ button{
   height: 50px;
   width: 50px;
   border: none;
-}
-.green{
-  background-color: #41B883;
-}
-.blue{
-  background-color: #35495E;
 }

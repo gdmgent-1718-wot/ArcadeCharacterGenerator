@@ -47,21 +47,12 @@
     <!--</div>-->
 <!--</div>-->
 
-<div id="colorpicker">
-    <photoshop-picker v-model="colors" @ok="onOk" @cancel="onCancel" @input="updateValue"></photoshop-picker>
-    <div :style="{ color: bgc }">
-        R:{{bgc.r}}
-        G:{{bgc.g}}
-        B:{{bgc.b}}
-    </div>
-</div>
-
-  <div id="app">
+  <div id="matrixContainer">
    <ul>
     <li v-for="rows,row in matrix">
       <ul id="matrix">
         <li v-for="pixel, nr in rows">
-          <button  @click="handleClick(row, nr, $event)">
+          <button  @click="showColorpicker(row, nr, $event)" v-bind:style="{ color: backgroundcolor }">
             {{row + 1}} | {{nr + 1}}
           </button></li>
       </ul>
@@ -69,6 +60,14 @@
    </ul>
 </div>
 
+<div id="colorpicker" v-show="preview">
+    <photoshop-picker v-model="colors" @ok="onOk" @cancel="onCancel" @input="updateValue"></photoshop-picker>
+    <div :style="{ color: bgc }">
+        R:{{bgc.r}}
+        G:{{bgc.g}}
+        B:{{bgc.b}}
+    </div>
+</div>
 <!--We laden VueJS in-->
   <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"></script>
   <script src="js/vue-color.min.js"></script>
