@@ -17,19 +17,16 @@
         <li v-for="pixel, nr in rows">
           <button  @click="showColorpicker(row, nr, $event)" v-bind:style="{ color: buttonColor }">
             {{row + 1}} | {{nr + 1}}
-          </button></li>
+          </button>
+        </li>
       </ul>
     </li>
    </ul>
+      <button>CHANGE COLOR</button>
 </div>
 
 <div id="colorpicker" v-show="preview">
     <photoshop-picker v-model="colors" @ok="onOk" @cancel="onCancel" @input="updateValue"></photoshop-picker>
-    <div :style="{ color: bgc }">
-        R:{{bgc.r}}
-        G:{{bgc.g}}
-        B:{{bgc.b}}
-    </div>
 </div>
 
 <!--We laden VueJS in-->

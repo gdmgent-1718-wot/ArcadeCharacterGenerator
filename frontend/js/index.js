@@ -14,16 +14,15 @@ let matrix = new Vue({
 	el: '#matrixContainer',
   data: {
     matrix: matrixConstruction,
-    colors: 'rgb(220,220,220)',
-    buttonColor: '#FFFFFF'
+    buttonColor: 'rgb(152, 32, 78)',
+    x: '',
+    y: ''
   },
   methods:{
     showColorpicker: function(index, parent, event){
-      //   alert(index + 1)
-      // alert(parent + 1)
         colorpicker.preview = true,
-        test = colorpicker.newColor
-
+        x= index + 1,
+        y = parent + 1
     }
   }
 });
@@ -60,7 +59,9 @@ let colorpicker = new Vue({
     data: {
         colors: defaultProps,
         preview: false,
-        newColor: 'rgb(200,200,200)'
+        newColor: '',
+        x: matrix.x,
+        y: matrix.y
     },
     computed: {
         bgc () {
@@ -70,6 +71,7 @@ let colorpicker = new Vue({
     methods: {
         onOk () {
             this.preview = false;
+            alert('Dit is de nieuwe kleur: ' + newColor + '. En dit zijn de coördinaten: X: ' + x + '  Y: ' + y)
         },
         onCancel () {
             this.preview = false;
