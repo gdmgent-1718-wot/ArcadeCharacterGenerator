@@ -1,15 +1,13 @@
-
 function createMatrix(row, col){
     a = []
-    for(var i=0; i < row; i++){
+    for(let i=0; i < row; i++){
         a[i] = []
-        for(var j=0; j < col; j++){
+        for(let j=0; j < col; j++){
             a[i][j] = null
         }
     } return a
 }
-
-var matrixConstruction = createMatrix(8, 8);
+let matrixConstruction = createMatrix(8, 8);
 
 
 let matrix = new Vue({
@@ -17,13 +15,15 @@ let matrix = new Vue({
   data: {
     matrix: matrixConstruction,
     colors: 'rgb(220,220,220)',
-  backgroundcolor: 'rgb(1,1,1)'
+    buttonColor: '#FFFFFF'
   },
   methods:{
     showColorpicker: function(index, parent, event){
       //   alert(index + 1)
       // alert(parent + 1)
-        colorpicker.preview = true
+        colorpicker.preview = true,
+        test = colorpicker.newColor
+
     }
   }
 });
@@ -54,22 +54,19 @@ let defaultProps = {
 
 let colorpicker = new Vue({
     el: '#colorpicker',
-
     components: {
         'photoshop-picker': photoshop
     },
-
     data: {
         colors: defaultProps,
-        preview: false
+        preview: false,
+        newColor: 'rgb(200,200,200)'
     },
-
     computed: {
         bgc () {
             return this.colors.rgba
         }
     },
-
     methods: {
         onOk () {
             this.preview = false;
@@ -78,7 +75,8 @@ let colorpicker = new Vue({
             this.preview = false;
         },
         updateValue (value) {
-            this.colors = value
+            this.colors = value,
+            newColor = 'rgb(' + value.rgba.r + ',' + value.rgba.g + ',' + value.rgba.b + ')'
         }
     }
 })

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html >
+
 <head>
   <meta charset="UTF-8">
   <title>Arcade Character Generator</title>
@@ -9,50 +10,12 @@
 
 <body>
 
-<!--<a class="paper-button ripple">-->
-    <!--PICK A COLOR-->
-<!--</a>-->
-<!--<div class="translate" id="colorpicker">-->
-    <!--<div class="color-picker" data-value="#2196F3">-->
-        <!--<div class="red"></div>-->
-        <!--<div class="blue"></div>-->
-        <!--<div class="green"></div>-->
-        <!--<div class="indigo"></div>-->
-        <!--<div class="brown"></div>-->
-        <!--<div class="black"></div>-->
-        <!--<div class="teal"></div>-->
-        <!--<div class="deep-orange"></div>-->
-        <!--<div class="light-blue"></div>-->
-        <!--<div class="light-green"></div>-->
-        <!--<div class="deep-purple"></div>-->
-        <!--<div class="amber"></div>-->
-        <!--<div class="blue-gray"></div>-->
-        <!--<div class="pink"></div>-->
-        <!--<div class="orange"></div>-->
-        <!--<div class="cyan"></div>-->
-        <!--<div class="lime"></div>-->
-        <!--<div class="purple"></div>-->
-        <!--<div class="yellow"></div>-->
-        <!--<div class="gray"></div>-->
-        <!--<div class="white"></div>-->
-        <!--<div class="transparent"></div>-->
-        <!--<input type="color" id="colorinput">-->
-        <!--<span class="hex">-->
-      <!--<input type="text" id="text">-->
-      <!--<div class="underline"></div>-->
-    <!--</span>-->
-        <!--<div id="close" @click="changeColor">-->
-            <!--OK!-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
   <div id="matrixContainer">
    <ul>
     <li v-for="rows,row in matrix">
       <ul id="matrix">
         <li v-for="pixel, nr in rows">
-          <button  @click="showColorpicker(row, nr, $event)" v-bind:style="{ color: backgroundcolor }">
+          <button  @click="showColorpicker(row, nr, $event)" v-bind:style="{ color: buttonColor }">
             {{row + 1}} | {{nr + 1}}
           </button></li>
       </ul>
@@ -68,18 +31,11 @@
         B:{{bgc.b}}
     </div>
 </div>
+
 <!--We laden VueJS in-->
   <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"></script>
   <script src="js/vue-color.min.js"></script>
-<script>
-    var photoshop = VueColor.Photoshop
-</script>
-
-<!--We laden JQUERY in voor de colorpicker.-->
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-<!--Colorpicker-->
-  <!--<script src="js/colorpicker.js"></script>-->
-<!--Vue Code-->
+  <script> var photoshop = VueColor.Photoshop </script>
   <script  src="js/index.js"></script>
 
 </body>
