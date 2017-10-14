@@ -15,18 +15,23 @@
     <li v-for="rows,row in matrix">
       <ul id="matrix">
         <li v-for="pixel, nr in rows">
-          <button  @click="showColorpicker(row, nr, $event)" v-bind:style="{ color: buttonColor }">
+          <button  @click="showColorpicker(row, nr, $event)" v-bind:style="{ color: buttonColor }" v-bind:value="nr.id">
             {{row + 1}} | {{nr + 1}}
           </button>
         </li>
       </ul>
     </li>
    </ul>
-      <button>CHANGE COLOR</button>
 </div>
 
-<div id="colorpicker" v-show="preview">
-    <photoshop-picker v-model="colors" @ok="onOk" @cancel="onCancel" @input="updateValue"></photoshop-picker>
+<div id="colorpicker">
+    <div>
+        Dit is de array dat we doorsturen naar de firebase:
+        <div v-for="pixels in matrixArray">
+            {{pixels}}
+        </div>
+    </div>
+    <photoshop-picker  v-show="preview" v-model="colors" @ok="onOk" @cancel="onCancel" @input="updateValue"></photoshop-picker>
 </div>
 
 <!--We laden VueJS in-->

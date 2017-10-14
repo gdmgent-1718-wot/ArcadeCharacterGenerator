@@ -60,8 +60,13 @@ let colorpicker = new Vue({
         colors: defaultProps,
         preview: false,
         newColor: '',
+        rValue: '',
+        gValue: '',
+        bValue: '',
         x: matrix.x,
-        y: matrix.y
+        y: matrix.y,
+        matrixArray: [],
+        arrayTopush: ''
     },
     computed: {
         bgc () {
@@ -70,15 +75,18 @@ let colorpicker = new Vue({
     },
     methods: {
         onOk () {
-            this.preview = false;
-            alert('Dit is de nieuwe kleur: ' + newColor + '. En dit zijn de coördinaten: X: ' + x + '  Y: ' + y)
+            this.preview = false
+            this.matrixArray.push([x, y, rValue, gValue, bValue])
         },
         onCancel () {
             this.preview = false;
         },
         updateValue (value) {
             this.colors = value,
-            newColor = 'rgb(' + value.rgba.r + ',' + value.rgba.g + ',' + value.rgba.b + ')'
+            newColor = 'rgb(' + value.rgba.r + ',' + value.rgba.g + ',' + value.rgba.b + ')',
+                rValue = value.rgba.r,
+                gValue = value.rgba.g,
+                bValue = value.rgba.b
         }
     }
 })
