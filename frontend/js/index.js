@@ -8,8 +8,6 @@ function createMatrix(row, col){
     } return a
 }
 let matrixConstruction = createMatrix(8, 8);
-
-
 let matrix = new Vue({
 	el: '#matrixContainer',
   data: {
@@ -51,22 +49,36 @@ let defaultProps = {
     a: 1
 }
 
+
+function createArray(row, col){
+    a = []
+    for(let i=0; i < row; i++){
+        a[i] = []
+        for(let j=0; j < col; j++){
+            a[i][j] = null
+        }
+    } return a
+}
+let arrayConstruction = createArray(8, 8);
 let colorpicker = new Vue({
     el: '#colorpicker',
     components: {
         'photoshop-picker': photoshop
     },
     data: {
+        array: arrayConstruction,
+        index: '',
+
         colors: defaultProps,
         preview: false,
+
         newColor: '',
         rValue: '',
         gValue: '',
         bValue: '',
+
         x: matrix.x,
-        y: matrix.y,
-        matrixArray: [],
-        arrayTopush: ''
+        y: matrix.y
     },
     computed: {
         bgc () {
@@ -76,7 +88,8 @@ let colorpicker = new Vue({
     methods: {
         onOk () {
             this.preview = false
-            this.matrixArray.push([x, y, rValue, gValue, bValue])
+
+            // this.matrixArray.push([x, y, rValue, gValue, bValue])
         },
         onCancel () {
             this.preview = false;
@@ -89,4 +102,4 @@ let colorpicker = new Vue({
                 bValue = value.rgba.b
         }
     }
-})
+});

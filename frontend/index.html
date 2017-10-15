@@ -26,10 +26,21 @@
 
 <div id="colorpicker">
     <div>
-        Dit is de array dat we doorsturen naar de firebase:
-        <div v-for="pixels in matrixArray">
-            {{pixels}}
-        </div>
+        Dit is de string vol met arrays (pixelinfo) dat we doorsturen naar de firebase:
+
+            <ul>
+                <li v-for="rows,row in array">
+                    <ul id="listOfArrays">
+                        <li v-for="pixel, nr in rows">
+                            [ {{row + 1}} , {{nr + 1}} , 0 , 0 , 0 ]
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        <!--<div v-for="pixels in matrixArray">-->
+            <!--{{pixels}}-->
+        <!--</div>-->
     </div>
     <photoshop-picker  v-show="preview" v-model="colors" @ok="onOk" @cancel="onCancel" @input="updateValue"></photoshop-picker>
 </div>
